@@ -11,6 +11,7 @@ public class DepartmentService {
 	private DepartmentDao dao = DaoFactory.createDepartmentDao();
 	
 	public List<Department> findAll(){
+		System.out.println(dao.findAll());
 		return dao.findAll();
 	}
 	
