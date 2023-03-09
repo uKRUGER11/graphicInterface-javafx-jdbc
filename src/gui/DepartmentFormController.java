@@ -1,8 +1,11 @@
 package gui;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import gui.listeners.DataChangeListener;
 import gui.util.Constraints;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +17,8 @@ import model.entities.Department;
 public class DepartmentFormController implements Initializable {
 
 	private Department entity;
+	
+	private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 	
 	@FXML
 	private TextField txtId;
@@ -32,6 +37,10 @@ public class DepartmentFormController implements Initializable {
 
 	public void setDepartment(Department entity) {
 		this.entity = entity;
+	}
+	
+	public void subscribeDataChangeListener(DataChangeListener listener) {
+		dataChangeListeners.add(listener);
 	}
 	
 	@FXML
